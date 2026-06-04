@@ -1,0 +1,12 @@
+{% set day = ansible_facts['date_time']['day']|int %}
+{% set hour = ansible_facts['date_time']['hour']|int %}
+
+{% if day % 2 == 0 and hour >= 12 %}
+pair et plus tard que midi
+{% elif day % 2 == 0 and hour < 12 %}
+pair et avant midi
+{% elif day % 2 != 0 and hour >= 12 %}
+impair et plus tard que midi
+{% else %}
+impair et avant midi
+{% endif %}
