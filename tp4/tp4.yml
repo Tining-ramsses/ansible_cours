@@ -1,4 +1,8 @@
 - name: utilisation du role geerlingguy.docker
   hosts: all
+
+  vars:
+    docker_users:
+      - ambient
   roles:
     - geerlingguy.docker
