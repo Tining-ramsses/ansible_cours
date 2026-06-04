@@ -1,0 +1,13 @@
+- name: Utilisation des imports
+  hosts: all
+
+  tasks:
+    - name: Import du fichier tp3.yml
+      ansible.builtin.import_tasks: tp3.yml
+    - name: Import du fichier tp4.yml
+      ansible.builtin.import_tasks: tp4.yml
+
+    - name: Écrire la date et l'heure dans /etc/last_changed
+      ansible.builtin.shell: |
+        echo "Dernière modification : $(date '+%Y-%m-%d %H:%M:%S')" > /etc/last_changed
+      changed_when: true

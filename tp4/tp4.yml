@@ -1,4 +1,4 @@
-- name: utilisation du role geerlingguy.docker
+- name: Utilisation du role geerlingguy.docker
   hosts: all
 
   vars:

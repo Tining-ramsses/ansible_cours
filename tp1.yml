@@ -1,12 +1,9 @@
-- name : install playbook
+- name: Install playbook
   hosts: all
 
   tasks:
-    - name: install apache2
+    - name: Install apache2
       ansible.builtin.apt:
         name: apache2
         state: present
         update_cache: true
-        
-
-    

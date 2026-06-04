@@ -1,8 +1,8 @@
-- name: install playbook
+- name: Install playbook
   hosts: all
 
   tasks:
-    - name: install apache2 and mysql-server
+    - name: Install apache2 and mysql-server
       ansible.builtin.apt:
         update_cache: true
         name: "{{ item }}"
@@ -11,19 +11,13 @@
         - apache2
         - mysql-server
 
-    - name: gather package facts
+    - name: Gather package facts
       ansible.builtin.package_facts:
         manager: auto
 
-    - name: copy index.html if apache2 is installed
+    - name: Copy index.html if apache2 is installed
       ansible.builtin.copy:
         content: "<h1>Bonjour</h1>"
         dest: /var/www/html/index.html
-        mode: '0644'
+        mode: "0644"
       when: "'apache2' in ansible_facts.packages"
-  
-
-    
-        
-
-  
